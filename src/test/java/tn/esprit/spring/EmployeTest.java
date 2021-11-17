@@ -36,7 +36,7 @@ public class EmployeTest {
 	@Test
 	@Order(1)
 	public void testAjoutEmploye() {
-		Employe employe = new Employe("Saidi","ahmed","Ahmed.Saidi@esprit.tn",true,Role.INGENIEUR);
+		Employe employe = new Employe("ines","zouari","ines.zouari@esprit.tn",true,Role.INGENIEUR);
 		int id = employeService.ajouterEmploye(employe);
 		Assert.assertNotNull(employeService.getEmployeById(id));
 	}
@@ -45,7 +45,7 @@ public class EmployeTest {
 	@Order(2)
 	public void testMettreAjourEmailByEmployeId()
 	{
-		Employe employe = new Employe("Slama","ahmed khalil","Ahmedkhalil.slama@esprit.tn",true,Role.INGENIEUR);
+		Employe employe = new Employe("yassine","ghabi","yassine.ghabi@esprit.tn",true,Role.INGENIEUR);
 		int id = employeService.ajouterEmploye(employe);
 		employeService.mettreAjourEmailByEmployeId("olay@esprit.tn", id);
 		Assert.assertTrue("not equal", employeService.getEmployeById(id).getEmail().equals("olay@esprit.tn"));
@@ -56,9 +56,9 @@ public class EmployeTest {
 	@Order(3)
 	public void testaffecterEmployeADepartement()
 	{
-		Employe employe = new Employe("Mneri","Malek","Malek.Mneri@esprit.tn",true,Role.INGENIEUR);
+		Employe employe = new Employe("eya","belil","eya.belil@esprit.tn",true,Role.INGENIEUR);
 		int idEmploye = employeService.ajouterEmploye(employe);
-		Departement departement = new Departement("Khalil's Departement");
+		Departement departement = new Departement("ines Departement");
 		int idDepartement = entrepriseService.ajouterDepartement(departement);
 		employeService.affecterEmployeADepartement(idEmploye, idDepartement);
 		Assert.assertTrue(employeService.getdeptById(idDepartement).getEmployes().indexOf(employe)!= -1);
@@ -71,7 +71,7 @@ public class EmployeTest {
 	{
 		Employe employe = new Employe("aziz","sahnoun","sahnoun.aziz@esprit.tn",true,Role.INGENIEUR);
 		int idEmploye = employeService.ajouterEmploye(employe);
-		Departement departement = new Departement("Khalil's Departement");
+		Departement departement = new Departement("ines Departement");
 		int idDepartement = entrepriseService.ajouterDepartement(departement);
 		employeService.affecterEmployeADepartement(idEmploye, idDepartement);
 		employeService.desaffecterEmployeDuDepartement(idEmploye, idDepartement);
@@ -95,7 +95,7 @@ public class EmployeTest {
 		Date date = new Date(System.currentTimeMillis());
 		Contrat contrat = new Contrat(date,"CDI",2000);
 		int referenceContrat = employeService.ajouterContrat(contrat);
-		Employe employe = new Employe("Oneil","Shaqil","Shaq.OG@esprit.tn",true,Role.INGENIEUR);
+		Employe employe = new Employe("inee","zz","inee.zz@esprit.tn",true,Role.INGENIEUR);
 		int idEmploye = employeService.ajouterEmploye(employe);
 		employeService.affecterContratAEmploye(referenceContrat, idEmploye);
 		Assert.assertNotNull(employeService.getContratById(referenceContrat).getEmploye());
@@ -105,7 +105,7 @@ public class EmployeTest {
 	@Order(7)
 	public void testDeleteEmployeById()
 	{
-		Employe employe = new Employe("Jordan","Michael","BlackJesus@esprit.tn",true,Role.INGENIEUR);
+		Employe employe = new Employe("yess","yess","yeess@esprit.tn",true,Role.INGENIEUR);
 		int idEmploye = employeService.ajouterEmploye(employe);
 		employeService.deleteEmployeById(idEmploye);
 		Assert.assertNull(employeService.getEmployeById(idEmploye));
