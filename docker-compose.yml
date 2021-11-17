@@ -6,17 +6,17 @@ services:
   environment:
    - MYSQL_ROOT_PASSWORD=rootpass
    - MYSQL_DATABASE=spring      
-   - MYSQL_USER=aziz
-   - MYSQL_PASSWORD=aziz
+   - MYSQL_USER=ines
+   - MYSQL_PASSWORD=ines
   ports:
    - "3306:3306"
 
   stdin_open: true
   tty: true
 
- Timesheet-contrat-A:
+ Timesheet-employe-A:
   build: \
-  image: contrat
+  image: employe
   ports:
     - 8082:8082
   depends_on:
@@ -24,8 +24,8 @@ services:
   environment:
    SPRING_APPLICATION_JSON: '{
         "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/spring?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-        "spring.datasource.username" : "aziz",
-        "spring.datasource.password" : "aziz",
+        "spring.datasource.username" : "ines",
+        "spring.datasource.password" : "ines",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
